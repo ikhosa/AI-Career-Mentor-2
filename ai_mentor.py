@@ -42,7 +42,7 @@ def generate_ai_guidance(top_careers, aptitude_scores, interest_scores):
                 {"role": "system", "content": "You are a professional educational career counseling expert in Pakistan."},
                 {"role": "user", "content": prompt}
             ],
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             temperature=0.6,
             max_tokens=1500,
         )
