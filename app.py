@@ -95,7 +95,7 @@ if "user_answers" not in st.session_state:
 st.markdown("""
 <div class="main-header">
     <span class="cui-badge"> WELCOME ! </span>
-    <h1 style="margin-top:10px;">🎓 Personal AI Career Mentor </h1>
+    <h1 style="margin-top:10px;">🎓 AI-Assisted Career Mentor </h1>
     <p>Discover Top-Demand, High-Income & Freelancing Careers in Pakistan tailored to your unique profile.</p>
 </div>
 """, unsafe_allow_html=True)
