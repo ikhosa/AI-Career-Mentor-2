@@ -13,32 +13,66 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Custom Styling with explicitly forced dark text and high-contrast background to work in both Light & Dark themes
 st.markdown("""
 <style>
     .main-header {
         background: linear-gradient(135deg, #004d4d 0%, #008080 100%);
         padding: 24px;
         border-radius: 12px;
-        color: white;
+        color: #ffffff !important;
         text-align: center;
         margin-bottom: 25px;
     }
+    .main-header h1 {
+        color: #ffffff !important;
+    }
     .cui-badge {
         background-color: #f0a500;
-        color: #111;
+        color: #111111 !important;
         padding: 4px 12px;
         border-radius: 20px;
         font-weight: bold;
         font-size: 0.85rem;
     }
+    
+    /* High Contrast Card Styling for Both Light and Dark Streamlit Themes */
     .card {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #008080;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        margin-bottom: 15px;
+        background-color: #ffffff !important;
+        padding: 22px;
+        border-radius: 12px;
+        border-left: 6px solid #008080;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 20px;
+        color: #111111 !important;
     }
+    
+    .card h3 {
+        color: #004d4d !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .card h2 {
+        color: #008080 !important;
+        font-size: 2rem !important;
+        font-weight: 800 !important;
+        margin-top: 5px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .card p {
+        color: #222222 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .card strong {
+        color: #000000 !important;
+    }
+
     .disclaimer {
         font-size: 0.8rem;
         color: #6c757d;
@@ -61,7 +95,7 @@ if "user_answers" not in st.session_state:
 st.markdown("""
 <div class="main-header">
     <span class="cui-badge">COMSATS / University Style Academic Portal</span>
-    <h1 style="margin-top:10px; color: white;">🎓 AI Career Mentor</h1>
+    <h1 style="margin-top:10px;">🎓 AI Career Mentor</h1>
     <p>Discover Top-Demand, High-Income & Freelancing Careers in Pakistan tailored to your unique profile.</p>
 </div>
 """, unsafe_allow_html=True)
@@ -71,10 +105,10 @@ if st.session_state.step == "welcome":
     with col1:
         st.subheader("Welcome to Your Intelligent Career Assessment")
         st.write("""
-        This tool helps high school and university students identify the most suitable career pathways in Pakistan.
+        This tool helps high school and intermediate students identify the most suitable career pathways in Pakistan.
         
         **What to Expect:**
-        - **20 Interactive Questions:** 10 scenario-based interest questions + 10 aptitude questions.
+        - **20 Interactive Questions:** 10 simple scenario-based interest questions + 10 straightforward aptitude questions.
         - **Data-Driven Scoring:** Combining logical reasoning, numerical skills, and personal preferences.
         - **AI-Powered Mentorship:** Detailed feedback powered by Groq LLM explaining your custom results.
         - **Focus on Local Demand & Freelancing:** Insights into domestic job markets and global remote options.
@@ -91,7 +125,7 @@ if st.session_state.step == "welcome":
         💡 **Tips for best results:**
         - Answer interest questions based on your natural inclination.
         - Work through aptitude questions carefully.
-        - Takes roughly 5–7 minutes to complete.
+        - Takes roughly 5 minutes to complete.
         """)
 
 elif st.session_state.step == "assessment":
@@ -157,7 +191,7 @@ elif st.session_state.step == "results":
             st.markdown(f"""
             <div class="card">
                 <h3>#{idx+1} {item['career']}</h3>
-                <h2 style="color:#008080;">{item['suitability_score']}% <span style="font-size:14px; color:#555;">Match</span></h2>
+                <h2>{item['suitability_score']}% <span style="font-size:14px; color:#444444; font-weight:normal;">Match</span></h2>
                 <p><strong>Domestic Demand:</strong> {career['demand_in_pk']}</p>
                 <p><strong>Freelance Potential:</strong> {career['freelance_potential']}</p>
             </div>
