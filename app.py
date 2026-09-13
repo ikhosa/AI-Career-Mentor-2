@@ -114,7 +114,7 @@ if st.session_state.step == "welcome":
         - **Focus on Local Demand & Freelancing:** Insights into domestic job markets and global remote options.
         """)
         
-        if st.button("🚀 Start Discovering Your career", type="primary", use_container_width=True):
+        if st.button("🚀 Discover Your career", type="primary", use_container_width=True):
             st.session_state.step = "assessment"
             st.session_state.current_q = 0
             st.session_state.user_answers = {}
